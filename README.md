@@ -10,4 +10,4 @@ Some settings are still missing. They are marked with TODO. If you can identify 
 
 ## Credits
 
-I got many settings from [Mathias Beynens](https://github.com/mathiasbynens/dotfiles/blob/main/.macos) and [tiiiecherle](https://github.com/tiiiecherle/osx_install_config/blob/master/11_system_and_app_preferences/11c_macos_preferences_14.sh).
+I got many settings from [tiiiecherle](https://github.com/tiiiecherle/osx_install_config/blob/master/11_system_and_app_preferences/11c_macos_preferences_14.sh) and [Mathias Beynens](https://github.com/mathiasbynens/dotfiles/blob/main/.macos).
