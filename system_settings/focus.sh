@@ -45,11 +45,17 @@ echo "Focus settings..."
 #   fi
 # }
 
-### focus
 
-# share across devices (needs logout)
-# do not share = true, share = false
-# defaults write com.apple.donotdisturbd disableCloudSync -bool true
+# share across devices (default: on) (needs logout)
+# share = false
+# do not share = true
+defaults write com.apple.donotdisturbd disableCloudSync -bool true
 
-# making the changes take effect
-# killall NotificationCenter
+
+### focus status
+
+# share focus status (default: on)
+# TODO
+
+# share from
+# TODO
