@@ -4,14 +4,14 @@ echo "Displays settings..."
 
 # settings here depend on the displays connected to the mac
 
-# true tone
+# automatically adjust brightness (default: on) & true tone (default: on)
 # TODO
-# sudo defaults read /var/root/Library/Preferences/com.apple.CoreBrightness.plist
-# true tone = CBColorAdaptationEnabled = 1 
-# auto brightness = AutoBrightnessEnable = 1    
-
 # show file content
 # sudo plutil -p /var/root/Library/Preferences/com.apple.CoreBrightness.plist
+# or
+# sudo defaults read /var/root/Library/Preferences/com.apple.CoreBrightness.plist
+# automatically adjust brightness = AutoBrightnessEnable
+# true tone = CBColorAdaptationEnabled
 
 # the respective values are in sub-levels with complex unidentified numbers 
 # they can therefore not be edited directly with the defaults command
@@ -45,68 +45,51 @@ echo "Displays settings..."
 #   :
 # fi
 
-# enable HiDPI display modes for non retina displays (requires restart) 
-# sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+# preset
+# TODO
 
-# show monitor sync options in menu bar if available
-defaults write com.apple.airplay showInMenuBarIfPresent -bool true
+# refresh rate
+# TODO
+
 
 ### advanced...
 
-# show resolutions as list
+# show resolutions as list (default: off)
 # TODO
 
-# allow your pointer and keyboard to move between any nearby mac or ipad
-# defaults -currentHost write com.apple.universalcontrol Disable -bool true
+# allow your pointer and keyboard to move between any nearby mac or ipad (default: on)
+defaults -currentHost write com.apple.universalcontrol Disable -bool true
 
-# push through the edge of a display to connect a nearby mac or ipad
+# push through the edge of a display to connect a nearby mac or ipad (default: on)
 # doesn't apply if the previous setting is set to true
-# defaults -currentHost write com.apple.universalcontrol DisableMagicEdges -bool true
+defaults -currentHost write com.apple.universalcontrol DisableMagicEdges -bool true
 
-# automatically reconnect to any nearby mac or ipad
+# automatically reconnect to any nearby mac or ipad (default: off)
 # TODO
 # seems to be an entry in /Users/$USER/Library/SyncedPreferences/com.apple.kvs/com.apple.KeyValueService.EndToEndEncrypted-Production.sqlite
 
-# slightly dim the display on battery
-# on = 1
-# off = 0
-# sudo pmset -b lessbright 0
-# sudo pmset -c lessbright 0
-
-# prevent automatic sleeping on power adapter when the display is off
-# should only be used with disksleep 0
-# on = 1
-# off = 0
-# sudo pmset -c sleep 0
-
-# prevent automatic sleeping on battery when the display is off
-# should only be used with disksleep 0
-# sudo pmset -b sleep 0
-
 
 ### night shift
-
 # TODO
 # sudo defaults read /var/root/Library/Preferences/com.apple.CoreBrightness.plist
+# the respective values are in sub-levels with complex unidentified numbers 
+# they can therefore not be edited directly with the defaults command
 
-# not sure which value corresponds to which setting
-# my guesses are
-
-# schedule (BlueReductionMode)
+# schedule (default: off)
+# BlueReductionMode
 # off = 0
 # custom = 2 (NightStartHour & DayStartHour are the custom times set)
 # sunset to sunrise = 1
 
-# turn on until tomorrow (BlueLightReductionAlgoOverride)
+# turn on until tomorrow (default: off)
+# BlueLightReductionAlgoOverride
 # on = 4
 # off = 0
 # BlueLightReductionAlgoOverrideTimestamp gets set
 
-# color temperature (CBBlueLightReductionCCTTargetRaw)
+# color temperature (default: 4128.328 (?))
+# CBBlueLightReductionCCTTargetRaw
 # e. g. 3792.336
-
-# the respective values are in sub-levels with complex unidentified numbers 
-# they can therefore not be edited directly with the defaults command
 
 
 ### sidecar
@@ -119,7 +102,7 @@ defaults write com.apple.airplay showInMenuBarIfPresent -bool true
 # defaults write com.apple.sidecar.display sidebarShown -bool false
 
 # show sidebar left
-defaults delete com.apple.sidecar.display sidebarRight &>/dev/null
+defaults delete com.apple.sidecar.display sidebarRight
 defaults write com.apple.sidecar.display sidebarShown -bool true
 
 # show sidebar right
@@ -128,7 +111,7 @@ defaults write com.apple.sidecar.display sidebarShown -bool true
 
 # touchbar
 # disable touchbar
-defaults delete com.apple.sidecar.display touchBarTop &> /dev/null
+defaults delete com.apple.sidecar.display touchBarTop
 defaults write com.apple.sidecar.display showTouchbar -bool false    
 
 # show touchbar bottom
@@ -141,3 +124,14 @@ defaults write com.apple.sidecar.display showTouchbar -bool false
 
 # double tap on apple pencil
 defaults write com.apple.sidecar.display doubleTapEnabled -bool false
+
+
+### hidden display tweaks
+
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
+
+# enable HiDPI display modes for non retina displays (requires restart) 
+# sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+
+# show monitor sync options in menu bar if available
+# defaults write com.apple.airplay showInMenuBarIfPresent -bool true

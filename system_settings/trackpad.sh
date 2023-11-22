@@ -7,20 +7,20 @@ echo "Trackpad settings..."
 
 ### point & click
 
-# trackpad speed
+# trackpad speed (default: 0.6875)
 defaults write NSGlobalDomain com.apple.trackpad.scaling -float 0.875
 
-# click
+# click (default: medium)
 # light = 0
 # medium = 1
 # firm = 2
 defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 1
 defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 1
 
-# silent clicking
+# silent clicking (default: off)
 defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -bool false
 
-# force click and haptic feedback & look up & data detectors
+# force click and haptic feedback & look up & data detectors (default: on & force click with one finger)
 # off & off = false, 0, true, 0, 0, 0
 # off & on = false, 0, true, 2, 2, 2
 # on & off = false, 1, false, 0, 0, 0
@@ -33,17 +33,7 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerTapGesture -int 2
 
-
-# with force click and haptic feedback enabled
-
-# tap with three fingers
-
-# off
-
-# with force click and haptic feedback disabled
-
-
-# secondary click
+# secondary click (default: click with two fingers)
 # off = false, false, false, false, 0, 0, 0
 # click with two fingers = true, true, true, true, 0, 0, 0
 # click in bottom right corner = true, false, false, false, 2, 2, 1
@@ -56,7 +46,7 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -i
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
 defaults -currentHost write NSGlobalDomain com.apple.trackpadCornerClickBehavior -int 0
 
-# tab to click
+# tab to click (default: off)
 # on = false, false, 0
 # off = true, true, 1
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool false
@@ -66,24 +56,25 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
 
 ### scroll & zoom
 
-# natural scrolling
+# natural scrolling (default: on)
+# also set in mouse settings
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
-# zoom in or out
+# zoom in or out (default: on)
 # on = true
 # off = false
 defaults write com.apple.AppleMultitouchTrackpad TrackpadPinch -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch -bool true
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.pinchGesture -bool true
 
-# smart zoom
+# smart zoom (default: on)
 # on = 1
 # off = 0
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 1
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.twoFingerDoubleTapGesture -int 1
 
-# rotate
+# rotate (default: on)
 # on = true
 # off = false
 defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -bool true
@@ -93,7 +84,7 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.rotateGesture -boo
 
 ### more gestures
 
-# swipe between pages & swipe between full-screen applications
+# swipe between pages & swipe between full-screen applications (default: scroll left or right with two fingers & swipe left or right with three fingers)
 # off & off = false, 0, 0, 0, 0, 0, 0
 # off & swipe left or right with three fingers = false, 2, 2, 2, 2, 2, 2
 # off & swipe left or right with four fingers = false, 0, 0, 0, 2, 2, 2
@@ -112,14 +103,14 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGes
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 2
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.fourFingerHorizSwipeGesture -int 2
 
-# notification center
+# notification center (default: on)
 # on = 3
 # off = 0
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.twoFingerFromRightEdgeSwipeGesture -int 3
 
-# mission control & app expose
+# mission control & app expose (default: swipe up with three fingers & off)
 # off & off = false, false, 1, 1, 1, 2, 2, 2
 # swipe up with three fingers & off = true, false, 2, 2, 2, 2, 2, 2
 # swipe up with four fingers & off = true, false, 1, 1, 1, 2, 2, 2
@@ -136,7 +127,7 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGest
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 2
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.fourFingerVertSwipeGesture -int 2
 
-# launchpad & show desktop
+# launchpad & show desktop (default: on & on)
 # off & off = false, false, 0, 0, 0, 0, 0, 0
 # off & on = false, true, 2, 2, 2, 2, 2, 2
 # on & off = true, false, 2, 2, 2, 2, 2, 2

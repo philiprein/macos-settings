@@ -2,13 +2,10 @@
 
 echo "Screen Saver settings..."
 
-# read defaults -currentHost read com.apple.screensaver moduleDict
+# TODO
 
-# non-random, e. g. "Hello"
-# defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName -string "Hello" path -string "/System/Library/Screen Savers/Hello.saver" type -int 0
+# show as wallpaper
+# TODO
 
-# random
-# defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName -string "Random" path -string "/System/Library/Screen Savers/Random.saver" type -int 8
-
-# show with clock
-defaults -currentHost write com.apple.screensaver showClock -bool false
+# show on all spaces
+# TODO

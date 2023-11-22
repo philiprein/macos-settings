@@ -4,7 +4,7 @@ echo "Sound settings..."
 
 ### sound effects
 
-# alert sound
+# alert sound (default: /System/Library/Sounds/Tink.aiff)
 # select an alert sound and check name with 
 # defaults read NSGlobalDomain com.apple.sound.beep.sound
 defaults write NSGlobalDomain com.apple.sound.beep.sound -string "/System/Library/Sounds/Bottle.aiff"

@@ -4,9 +4,6 @@ echo "Users & Groups settings..."
 
 ### current user
 
-# change password...
-# dscl . -passwd /Users/$USER
-
 # allow this user to administer this computer
 # this option has to be selected when creating a user account
 # dscl . -merge /Groups/admin GroupMembership "$USER"
@@ -29,11 +26,18 @@ echo "Users & Groups settings..."
 
 ### guest user
 
-# allow guests to log in to this computer
+# allow guests to log in to this computer (default: off) (requires logout)
 sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
 
-# limit adult websites
+# limit adult websites (default: on) 
 # TODO
 
-# allow guest users to connect to shared folders
-# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server AllowGuestAccess -bool false
+# allow guest users to connect to shared folders (default: off)
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server AllowGuestAccess -bool false
+
+
+# automatically log in as (default: off)
+# TODO
+
+# network account server
+# TODO

@@ -4,56 +4,62 @@ echo "Desktop & Dock settings..."
 
 ### dock
 
-# size
+# size (default: 64)
 defaults write com.apple.dock tilesize -int 42
 
-# magnification
+# magnification (default: off)
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock largesize -int 80
 
-# position on screen
-# options: left, bottom, right
+# position on screen (default: bottom)
+# left = left
+# bottom = bottom
+# right = right
 defaults write com.apple.dock orientation -string "bottom"
 
-# minimize windows using
-# options: scale, genie
+# minimize windows using (default: genie effect)
+# genie effect = genie
+# sacle effect = scale
 defaults write com.apple.dock mineffect -string "scale"
 
-# double-click a windows's title bar to
+# double-click a windows's title bar to (default: zoom)
 # minimize = true
 # zoom = false
 defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
 
-# minimize windows into applications icon
+# minimize windows into applications icon (default: off)
 defaults write com.apple.dock minimize-to-application -bool false
 
-# automatically hide and show the dock
+# automatically hide and show the dock (default: off)
 defaults write com.apple.dock autohide -bool true
 
-# animate opening applications
+# animate opening applications (default: on)
 defaults write com.apple.dock launchanim -bool true
 
-# show recent applications in dock
+# show indicators for open applications (default: on)
+defaults write com.apple.dock show-process-indicators -bool true
+
+# show suggested and recent applications in dock (default: on)
 defaults write com.apple.dock show-recents -bool true
+
 
 ### hidden dock tweaks
 
-# highlight hover effect for the grid view of a stack
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
+
+# highlight hover effect for the grid view of a stack (default: off)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-# spring loading for all dock items
+# spring loading for all dock items (default: off)
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool false
 
-# indicator lights for open applications in the dock
-defaults write com.apple.dock show-process-indicators -bool true
-
-# dock icons of hidden (⌘ + H) applications are translucent
+# dock icons of hidden (⌘ + H) applications are translucent (default: off)
 defaults write com.apple.dock showhidden -bool true
 
-# only open applications show up in the dock
-# defaults write com.apple.dock static-only -bool false
+# only open applications show up in the dock (default: off)
+defaults write com.apple.dock static-only -bool false
 
-# bouncing icons when apps need your attention
+# no bouncing icons when apps need your attention (default: off)
 defaults write com.apple.dock no-bouncing -bool false
 
 # auto-hiding dock delay
@@ -66,64 +72,98 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 defaults write com.apple.dock scroll-to-open -bool true
 
 
-### menu bar
+### desktop & stage manager
 
-# automatically hide and show the menu bar
-# always = 0, 1
-# on desktop only = 1, 1
-# in full screen only = 0, 0
-# never = 1, 0
-defaults write NSGlobalDomain AppleMenuBarVisibleInFullscreen -int 0
-defaults write NSGlobalDomain _HIHideMenuBar -int 0
+# show items (default: on desktop)
+# off
+defaults write com.apple.WindowManager StandardHideDesktopIcons -bool true
+defaults write com.apple.WindowManager HideDesktop -bool true
+# on desktop
+defaults write com.apple.WindowManager StandardHideDesktopIcons -bool false
+defaults write com.apple.WindowManager HideDesktop -bool true
+# in stage manager
+defaults write com.apple.WindowManager StandardHideDesktopIcons -bool true
+defaults write com.apple.WindowManager HideDesktop -bool false
+# on desktop & in stage manager
+defaults write com.apple.WindowManager StandardHideDesktopIcons -bool false
+defaults write com.apple.WindowManager HideDesktop -bool false
 
-# recent documents, applications, and servers
-defaults write NSGlobalDomain NSRecentDocumentsLimit 10
+# click wallpaper to reveal desktop (default: always)
+# always = true
+# only in stage manager = false
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool true
 
-
-### windows & apps
-
-# prefer tabs when opening documents
-# options: always, fullscreen or manual
-defaults write NSGlobalDomain AppleWindowTabbingMode -string "fullscreen"
-
-# ask to keep changes when closing documents
-defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -bool true
-
-# close windows when quitting an application
-defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
-
-# stage manager
+# stage manager (default: off)
 defaults write com.apple.WindowManager GloballyEnabled -bool false
 
-# if enabled:
-# recent applications
+# show recent apps in stage manager (default: on)
+# on = false
+# off = true
 defaults write com.apple.WindowManager AutoHide -bool false
 
-# desktop items
-defaults write com.apple.WindowManager HideDesktop -bool true
-
-# show windows from an application
+# show windows from an application (default: all at once)
 # all at once = 1
 # one at a time = 0
-defaults write com.apple.WindowManager AppWindowGroupingBehavior -int 0
+defaults write com.apple.WindowManager AppWindowGroupingBehavior -int 1
+
+
+### widgets
+
+# show widgets (default: on desktop & in stage manager)
+# off
+defaults write com.apple.WindowManager StandardHideWidgets -bool true
+defaults write com.apple.WindowManager StageManagerHideWidgets -bool true
+# on desktop
+defaults write com.apple.WindowManager StandardHideWidgets -bool false
+defaults write com.apple.WindowManager StageManagerHideWidgets -bool true
+# in stage manager
+defaults write com.apple.WindowManager StandardHideWidgets -bool true
+defaults write com.apple.WindowManager StageManagerHideWidgets -bool false
+# on desktop & in stage manager
+defaults write com.apple.WindowManager StandardHideWidgets -bool false
+defaults write com.apple.WindowManager StageManagerHideWidgets -bool false
+
+# widget style (default: automatic)
+# automatic = 2
+# monochrome = 0
+# full-color = 1
+defaults write com.apple.widgets widgetAppearance -int 1
+
+# use iPhone widgets (default: on)
+defaults write com.apple.chronod remoteWidgetsEnabled -bool true
+defaults write com.apple.chronod effectiveRemoteWidgetsEnabled -bool true
 
 # default web browser
 # TODO
-# seperate script?
+
+
+### windows
+
+# prefer tabs when opening documents (default: in full screen)
+# never = manual
+# always = always
+# in full screen = fullscreen
+defaults write NSGlobalDomain AppleWindowTabbingMode -string "fullscreen"
+
+# ask to keep changes when closing documents (default: off)
+defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -bool true
+
+# close windows when quitting an application (default: on)
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
 
 
 ### mission control
 
-# automatically rearrange spaces based on most recent use
+# automatically rearrange spaces based on most recent use (default: on)
 defaults write com.apple.dock mru-spaces -bool false
 
-# when switching to an application, switch to a space with open windows for that application
+# when switching to an application, switch to a space with open windows for the application (default: off)
 defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool false
 
-# group windows by application
+# group windows by application (default: off)
 defaults write com.apple.dock expose-group-apps -bool true
 
-# displays have separate spaces (requires log out)
+# displays have separate spaces (default: on) (requires logout) 
 defaults write com.apple.spaces spans-displays -bool true
 
 
@@ -177,12 +217,6 @@ defaults write com.apple.spaces spans-displays -bool true
 # /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c 'Add AppleSymbolicHotKeys:32:value:parameters:"Item 0" integer 0'
 # /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c 'Add AppleSymbolicHotKeys:32:value:parameters:"Item 1" integer 101'
 # /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c 'Add AppleSymbolicHotKeys:32:value:parameters:"Item 2" integer 65535'
-
-
-### hidden mission control tweaks
-
-# speed up mission control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
     
 
 ### hot corners
@@ -205,18 +239,26 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 # option = 524288
 # command = 1048576
 
-# top left screen corner
+# top left screen corner (default: off)
 defaults write com.apple.dock wvous-tl-corner -int 10
 defaults write com.apple.dock wvous-tl-modifier -int 1048576
 
-# top right screen corner
+# top right screen corner (default: off)
 defaults write com.apple.dock wvous-tr-corner -int 1
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
-# bottom left screen corner
+# bottom left screen corner (default: off)
 defaults write com.apple.dock wvous-bl-corner -int 1
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
-# bottom right screen corner
+# bottom right screen corner (default: quick note)
 defaults write com.apple.dock wvous-br-corner -int 1
 defaults write com.apple.dock wvous-br-modifier -int 0
+
+
+### hidden desktop & dock tweaks
+
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
+
+# speed up mission control animations
+# defaults write com.apple.dock expose-animation-duration -float 0.1

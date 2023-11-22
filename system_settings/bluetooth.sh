@@ -2,6 +2,10 @@
 
 echo "Bluetooth settings..."
 
+# bluetooth (default: on)
+# TODO
+
+
 ### advanced...
 
 # open bluetooth assistant on boot if no keyboard is detected (default: on)
@@ -13,6 +17,7 @@ echo "Bluetooth settings..."
 # doesn't work permanently; setting will be reset when pref pane in system settins is opened
 # TODO
 # sudo defaults write /Library/Preferences/com.apple.Bluetooth.plist BluetoothAutoSeekPointingDevice -bool false
+
 
 ### hidden bluetooth tweaks
 

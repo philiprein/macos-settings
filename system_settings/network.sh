@@ -7,7 +7,7 @@ echo "Network settings..."
 # help
 # /usr/libexec/ApplicationFirewall/socketfilterfw -h
 
-# firewall (default: on)
+# firewall (default: off)
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on &>/dev/null
 
 # block all incoming connections (default: off)

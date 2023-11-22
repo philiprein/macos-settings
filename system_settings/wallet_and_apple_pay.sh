@@ -2,5 +2,8 @@
 
 echo "Wallet & Apple Pay settings..."
 
+# compatible cards (default: off)
 # TODO
-# for security and privacy reasons, it probably doesn't make sense to script anything here
+
+# add order to wallet (default: on)
+# TODO

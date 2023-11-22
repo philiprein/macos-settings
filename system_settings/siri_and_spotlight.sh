@@ -2,17 +2,14 @@
 
 echo "Siri & Spotlight settings..."
 
-# ask siri
+# ask siri (default: set in setup assistant)
 # if this is set to false some of the following settings will not be set and not be shown correctly in the system settings
 defaults write com.apple.assistant.support "Assistant Enabled" -boolean false
 
-# listen for "hey siri" on headphones
+# listen for ("hey siri" on headphones) (default: off)
 defaults write com.apple.Siri VoiceTriggerUserEnabled -bool false
 
-# allow siri when locked
-defaults write com.apple.Siri LockscreenEnabled -bool false
-
-# keyboard shortcut
+# keyboard shortcut (default: off or hold f5)
 # off = 0
 # hold command space = 2
 # hold option space = 3
@@ -45,10 +42,10 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 17
 #  </dict>
 # "
 
-# language
-defaults write com.apple.assistant.backedup "Session Language" -string de-DE
+# language (default: set in setup assistant)
+defaults write com.apple.assistant.backedup "Session Language" -string en-US
 
-# siri voice
+# siri voice (default: set in setup assistant)
 # options depend on the selected language
 # defaults write com.apple.assistant.backedup "Output Voice" -dict \
 #   Custom 1 \
@@ -57,7 +54,7 @@ defaults write com.apple.assistant.backedup "Session Language" -string de-DE
 #   Language "en-US" \
 #   Name "aaron"
 
-# siri suggestions & privacy
+# siri suggestions & privacy (default: all enabled)
 # to disable "show siri suggestions for x", add the app's bundle identifier to the AppCanShowSiriSuggestionsBlacklist array
 defaults delete com.apple.suggestions AppCanShowSiriSuggestionsBlacklist
 defaults write com.apple.suggestions AppCanShowSiriSuggestionsBlacklist -array-add \
@@ -99,22 +96,22 @@ defaults write com.apple.suggestions SiriCanLearnFromAppBlacklist -array-add \
 # make changes take effect
 defaults read com.apple.suggestions.plist &>/dev/null
 
-# siri responses
+# siri responses (default: 3)
 # voice feedback
 # on = 2
 # off = 3
 defaults write com.apple.assistant.backedup "Use device speaker for TTS" -int 3
 
-# always show siri captions
+# always show siri captions (default: off)
 defaults write com.apple.assistant.backedup "Always Print Siri Response" -bool false
 
-# always show speech
+# always show speech (default: off)
 defaults write com.apple.assistant.backedup "Always Show Recognized Speech" -bool false
 
 
 ### spotlight
 
-# search results
+# search results (default: all enabled)
 defaults delete com.apple.Spotlight orderedItems
 
 /usr/libexec/PlistBuddy -c 'Add :orderedItems array' ~/Library/Preferences/com.apple.Spotlight.plist
@@ -158,3 +155,11 @@ done
 
 # makes changes take effect
 defaults read com.apple.Spotlight orderedItems &>/dev/null
+
+
+### hidden siri & spotlight tweaks
+
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
+
+# allow siri when locked
+defaults write com.apple.Siri LockscreenEnabled -bool false

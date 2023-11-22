@@ -1,32 +1,29 @@
 #!/bin/zsh
 
 # this is a list of hidden settings that i found online but couldn't associate with any of the system settings
-# most of them seem to be outdated and no longer work
 
-# reopen all windows after next login
-# false = disable, true = enable
-defaults write com.apple.loginwindow TALLogoutSavesState -bool false
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
 # expand save panel by default
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+# defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+ #defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
 # expand print panel by default
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+# defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+# defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 # save to disk (not to icloud) by default
 # false = save to disk, true = save to icloud
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+# defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # automatically quit printer app once the print jobs complete
-defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+# defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 # disable the "are you sure you want to open this application?" dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+# defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # increase window resize speed for cocoa applications
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+# defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # remove duplicates in the open with menu (also see `lscleanup` alias)
 # echo removing duplicate entries in open with menu, this can take a while...

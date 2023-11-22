@@ -4,7 +4,7 @@ echo "Notifications settings..."
 
 # show previews (default: 2)
 # 1 = never
-# 2 = if unlocked
+# 2 = when unlocked
 # 3 = always
 defaults write com.apple.ncprefs content_visibility -int 2
 

@@ -11,3 +11,21 @@ echo "Game Center settings..."
 #   sleep 3
 #   launchctl disable gui/"$(id -u "$USER")"/com.apple.gamed
 # fi
+
+# profile privacy
+# everyone
+# friends only
+# only you
+# TODO
+
+# allow finding by friends
+# TODO
+
+# requests from contacts only
+# TODO
+
+# nearby players
+# TODO
+
+# connect with friends
+# TODO

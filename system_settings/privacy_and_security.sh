@@ -78,17 +78,22 @@ echo "Privacy & Security settings..."
 
 # set_app_security_permission "com.apple.Terminal" "kTCCServiceAccessibility" "1"
 
+
+### sensitive content warning (default: off)
+# TODO
+
+
 ### analytics & improvements
 
-# share mac analytics
+# share mac analytics (default: set in setup assistant)
 defaults write "/Library/Application Support/CrashReporter/DiagnosticMessagesHistory.plist" AutoSubmit -bool false
 defaults write "/Library/Application Support/CrashReporter/DiagnosticMessagesHistory.plist" SeedAutoSubmit -bool false
 defaults write "/Library/Application Support/CrashReporter/DiagnosticMessagesHistory.plist" AutoSubmitVersion -integer 4
 
-# improve siri & dictation
+# improve siri & dictation (default: set in setup assistant)
 defaults write com.apple.assistant.support "Siri Data Sharing Opt-In Status" -integer 2
 
-# share with app developers
+# share with app developers (default: set in setup assistant)
 defaults write "/Library/Application Support/CrashReporter/DiagnosticMessagesHistory.plist" ThirdPartyDataSubmit -bool false
 defaults write "/Library/Application Support/CrashReporter/DiagnosticMessagesHistory.plist" ThirdPartyDataSubmitVersion -integer 4
 
@@ -105,16 +110,13 @@ defaults write com.apple.AdLib allowApplePersonalizedAdvertising -bool false
 
 ### security
 
-# allow applications downloaded from
-
+# allow applications downloaded from (default: app store and identified developers)
 # app store
 # sudo spctl --master-enable
 # sudo spctl --disable
-
-# app store and identified developers
+# app store and identified developers 
 sudo spctl --master-enable
 sudo spctl --enable
-
 # disable gatekeeper completely
 # sudo spctl --master-disable
 
@@ -123,29 +125,27 @@ sudo spctl --enable
 # spctl --enable --label "GitHub"
 # spctl --disable --label "GitHub"
 
-# filevault
+# filevault (default: set in setup assistant or off)
 # TODO
-if [[ $(fdesetup isactive) == "true" ]]; then
-  # filevault is already enabled
-  # echo "FileVault is enabled."
-else
-  # filevault is disabled
-  # echo "FileVault is disabled. Enable in System Settings -> Privacy & Security"
-fi
-
 # enabling filevault via script leads to complications with other settings
-# usually filevault is enabled/disabled in setup assistant anyway
+# if [[ $(fdesetup isactive) == "true" ]]; then
+#   # filevault is already enabled
+#   echo "FileVault is enabled."
+# else
+#   # filevault is disabled
+#   echo "FileVault is disabled. Enable in System Settings -> Privacy & Security"
+# fi
 
-# lockdown mode
+
+# lockdown mode (default: off)
 # TODO
-# it usually does not make sense to enable this (see the settings description)
 
 
 ### extensions
 # TODO
-# these are incomplete
 
-# finder
+# finder (default: all enabled)
+# TODO: these are incomplete
 defaults write pbs FinderActive -dict-add APPEXTENSION-com.apple.finder.CreatePDFQuickAction -bool true
 defaults write pbs FinderActive -dict-add APPEXTENSION-com.apple.finder.MarkupQuickAction -bool true
 defaults write pbs FinderActive -dict-add APPEXTENSION-com.apple.finder.RotateQuickAction -bool true
@@ -153,12 +153,12 @@ defaults write pbs FinderActive -dict-add APPEXTENSION-com.apple.finder.TrimQuic
 
 
 ### profiles
-
+# TODO
 
 
 ### advanced...
 
-# require an administrator password to access system-wide settings
+# require an administrator password to access system-wide settings (default: off)
 # TODO: Test this
 
 # list of system preference panes
@@ -180,7 +180,7 @@ defaults write pbs FinderActive -dict-add APPEXTENSION-com.apple.finder.TrimQuic
 #   fi
 # done
 
-# log out automatically after inactivity
+# log out automatically after inactivity (default: off)
 # disable
 sudo defaults delete /Library/Preferences/.GlobalPreferences.plist com.apple.autologout.AutoLogOutDelay
 # enable 

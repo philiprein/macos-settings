@@ -16,10 +16,10 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheck
 # download new updates when available (default: on)
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool true
 
-# install macos updates automatically (default: on)
+# install macos updates automatically (default: off)
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyInstallMacOSUpdates -bool false
 
-# install application updates from the App Store automatically (default: on)
+# install application updates from the App Store automatically (default: off)
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true
 
 # install system and security updates automatically (default: on)
@@ -29,7 +29,7 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdate
 
 ### storage
 
-# store in icloud
+# store in icloud (default: set in setup assistant)
 # TODO
 
 # optimize storage (default: off)
@@ -47,7 +47,7 @@ defaults write com.apple.finder FXRemoveOldTrashItems -bool false
 defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool true
 defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool true
 
-# airdrop (default: "Contacts Only")
+# airdrop (default: "Off")
 # no one = "Off"
 # contacts only = "Contacts Only"
 # everyone = "Everyone"
@@ -176,6 +176,18 @@ sudo systemsetup -settimezone "Europe/Berlin" &>/dev/null
 #   fi
 # }
 
+# file sharing (default: off)
+# TODO
+# deactivate smb file server
+# disable_sharing_service "com.apple.smbd"
+# deactivate afp file server
+# disable_sharing_service "com.apple.AppleFileServer"
+
+
+# media sharing (default: off) (needs reboot)
+defaults write com.apple.amp.mediasharingd public-sharing-enabled -bool false
+defaults write com.apple.amp.mediasharingd home-sharing-enabled -bool false
+
 
 # screen sharing (default: off)
 # TODO
@@ -191,12 +203,14 @@ sudo defaults write /Library/Preferences/com.apple.RemoteManagement.plist Screen
 # TODO
 
 
-# file sharing (default: off)
-# TODO
-# deactivate smb file server
-# disable_sharing_service "com.apple.smbd"
-# deactivate afp file server
-# disable_sharing_service "com.apple.AppleFileServer"
+# content caching (default: off)
+# on = activate
+# off = deactivate
+sudo AssetCacheManagerUtil deactivate
+
+
+# bluetooth sharing (default: off) (needs logout)
+defaults -currentHost write com.apple.bluetooth PrefKeyServicesEnabled -bool false
 
 
 # printer sharing (default: off)
@@ -211,26 +225,6 @@ cupsctl --no-share-printers
 # system_profiler SPPrintersDataType | grep Shared
 
 
-# remote login (default: off)
-# on = on
-# off = off
-sudo systemsetup -setremotelogin off
-# check
-# sudo systemsetup -getremotelogin
-
-
-# remote management (default: off)
-# TODO
-
-
-# remote apple events (default: off)
-# on = on
-# off = off
-sudo systemsetup -setremoteappleevents off
-# check
-# sudo systemsetup -getremoteappleevents | grep "Apple Events"
-
-
 # internet sharing (default: off)
 # TODO
 # disable_sharing_service "com.apple.InternetSharing"
@@ -240,19 +234,20 @@ sudo systemsetup -setremoteappleevents off
 # sudo defaults read /Library/Preferences/SystemConfiguration/com.apple.nat | grep -i Enabled
 
 
-# content caching (default: off)
-# on = activate
-# off = deactivate
-sudo AssetCacheManagerUtil deactivate
+# remote management (default: off)
+# TODO
 
 
-# media sharing (default: off) (needs reboot)
-defaults write com.apple.amp.mediasharingd public-sharing-enabled -bool false
-defaults write com.apple.amp.mediasharingd home-sharing-enabled -bool false
+# remote login (default: off)
+# on = on
+# off = off
+sudo systemsetup -setremotelogin off
+# check
+# sudo systemsetup -getremotelogin
 
 
-# bluetooth sharing (default: off) (needs logout)
-defaults -currentHost write com.apple.bluetooth PrefKeyServicesEnabled -bool false
+# remote application scripting
+# TODO
 
 
 # local hostname
@@ -279,7 +274,7 @@ unset MY_HOSTNAME
 
 ### time machine
 
-# back up frequency
+# back up frequency (default: 3600)
 # manually
 # sudo defaults delete /Library/Preferences/com.apple.TimeMachine AutoBackupInterval
 # automatically every hour = 3600
@@ -287,7 +282,7 @@ unset MY_HOSTNAME
 # automatically every week = 604800
 sudo defaults write /Library/Preferences/com.apple.TimeMachine AutoBackupInterval -int 3600
 
-# back up on battery power
+# back up on battery power (default: true)
 sudo defaults write /Library/Preferences/com.apple.TimeMachine RequiresACPower -bool true
 
 
@@ -344,3 +339,10 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine AutoBackup -bool 
 
 # setup assistant language (system and login screen)
 # sudo languagesetup -langspec en
+
+# remote apple events (default: off)
+# on = on
+# off = off
+sudo systemsetup -setremoteappleevents off
+# check
+# sudo systemsetup -getremoteappleevents | grep "Apple Events"
