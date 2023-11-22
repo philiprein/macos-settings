@@ -35,10 +35,9 @@ defaults write com.apple.ActivityMonitor UpdatePeriod -int 5
 # processes, by gpu = ?
 defaults write com.apple.ActivityMonitor ShowCategory -int 100
 
-
 ### hidden activity monitor tweaks
 
-# settings that are commented out couldn't be validated to see if they were out of date or not
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
 # show the main window when launching activity monitor
 # defaults write com.apple.ActivityMonitor OpenMainWindow -bool true

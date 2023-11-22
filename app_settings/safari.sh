@@ -77,7 +77,6 @@ defaults write com.apple.Safari DownloadsClearingPolicy -int 1
 # open safe files after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
-
 ### tabs
 
 # tab layout
@@ -111,7 +110,6 @@ defaults write com.apple.Safari OpenNewTabsInFront -bool true
 # use cmd-1 through cmd-9 to switch tabs
 defaults write com.apple.Safari Command1Through9SwitchesTabs -bool true
 
-
 ### autofill
 
 # using information from my contacts
@@ -126,13 +124,11 @@ defaults write com.apple.Safari AutoFillCreditCardData -bool false
 # other forms
 defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
 
-
 ### passwords
 
 # autofill passwords
 # already done above, sets both to true or false
 # defaults write com.apple.Safari AutoFillPasswords -bool false
-
 
 ### search
 
@@ -182,7 +178,6 @@ defaults write com.apple.Safari PreloadTopHit -bool false
 # show favorites
 defaults write com.apple.Safari ShowFavoritesUnderSmartSearchField -bool false
 
-
 ### security
 
 # fraudulent sites: warn when visiting a fraudulent website
@@ -191,7 +186,6 @@ defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
 # web content: enable javascript
 defaults write com.apple.Safari WebKitJavaScriptEnabled -bool true
 defaults write com.apple.Safari WebKitPreferences.javaScriptEnabled -bool true
-
 
 ### privacy
 
@@ -216,7 +210,6 @@ defaults write com.apple.Safari WebKitStorageBlockingPolicy -int 1
 
 # private browsing: require password to view locked tabs
 defaults write com.apple.Safari PrivateBrowsingRequiresAuthentication -bool true
-
 
 ### websites
 
@@ -272,14 +265,13 @@ SAFARI_WEBSITE_DATABASE="${HOME}/Library/Safari/PerSitePreferences.db"
 # sqlite3 "$SAFARI_WEBSITE_DATABASE" "delete from default_preferences WHERE preference='PerSitePreferencesMicrophone';"
 # sqlite3 "$SAFARI_WEBSITE_DATABASE" "delete from preference_values WHERE preference='PerSitePreferencesMicrophone';"
 
-
 # reader
 # off = 0
 # on = 1
 if [[ $(sqlite3 "$SAFARI_WEBSITE_DATABASE" "SELECT * from default_preferences;" | grep "PerSitePreferencesUseReader") == "" ]]; then
-  sqlite3 "$SAFARI_WEBSITE_DATABASE" "INSERT INTO default_preferences (preference, default_value) values ('PerSitePreferencesUseReader', '0');"
+    sqlite3 "$SAFARI_WEBSITE_DATABASE" "INSERT INTO default_preferences (preference, default_value) values ('PerSitePreferencesUseReader', '0');"
 else
-  sqlite3 "$SAFARI_WEBSITE_DATABASE" "UPDATE default_preferences SET default_value='0' WHERE preference='PerSitePreferencesUseReader'"
+    sqlite3 "$SAFARI_WEBSITE_DATABASE" "UPDATE default_preferences SET default_value='0' WHERE preference='PerSitePreferencesUseReader'"
 fi
 
 # use content blocker
@@ -330,8 +322,7 @@ fi
 # adds entries to "$HOME"/Library/Safari/UserMediaPermissions.plist
 # ask = 0
 # do not allow = 1
-if [[ $(sqlite3 "$SAFARI_WEBSITE_DATABASE" "SELECT * from default_preferences;" | grep "PerSitePreferencesStoreKeyScreenCapture") == "" ]]
-then
+if [[ $(sqlite3 "$SAFARI_WEBSITE_DATABASE" "SELECT * from default_preferences;" | grep "PerSitePreferencesStoreKeyScreenCapture") == "" ]]; then
     sqlite3 "$SAFARI_WEBSITE_DATABASE" "INSERT INTO default_preferences (preference, default_value) values ('PerSitePreferencesStoreKeyScreenCapture', '0');"
 else
     sqlite3 "$SAFARI_WEBSITE_DATABASE" "UPDATE default_preferences SET default_value='0' WHERE preference='PerSitePreferencesStoreKeyScreenCapture'"
@@ -357,8 +348,7 @@ fi
 # allow = 0
 # ask = 1
 # not allow = 2
-if [[ $(sqlite3 "$SAFARI_WEBSITE_DATABASE" "SELECT * from default_preferences;" | grep "PerSitePreferencesDownloads") == "" ]]
-then
+if [[ $(sqlite3 "$SAFARI_WEBSITE_DATABASE" "SELECT * from default_preferences;" | grep "PerSitePreferencesDownloads") == "" ]]; then
     sqlite3 "$SAFARI_WEBSITE_DATABASE" "INSERT INTO default_preferences (preference, default_value) values ('PerSitePreferencesDownloads', '1');"
 else
     sqlite3 "$SAFARI_WEBSITE_DATABASE" "UPDATE default_preferences SET default_value='1' WHERE preference='PerSitePreferencesDownloads'"
@@ -381,11 +371,9 @@ fi
 # extensions
 # done in extensions below
 
-
 ### profiles
 
 # TODO
-
 
 ### extensions
 
@@ -396,7 +384,6 @@ defaults write com.apple.Safari ExtensionsEnabled -bool true
 # SAFARI_WEB_EXTENSIONS_CONFIG_FILE="${HOME}/Library/Containers/com.apple.Safari/Data/Library/Safari/WebExtensions/Extensions.plist"
 
 # TODO
-
 
 ### advanced
 
@@ -456,7 +443,6 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari WebKitPreferences.developerExtrasEnabled -bool true
 defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true
 
-
 ### developer
 
 # automation: allow remote automation
@@ -496,7 +482,6 @@ defaults write com.apple.Safari WebKitPreferences.webSecurityEnabled -bool true
 # extensions: allow unsigned extensions
 # TODO
 
-
 ### view settings
 
 # always show tab bar
@@ -512,10 +497,9 @@ defaults write com.apple.Safari ShowOverlayStatusBar -bool false
 # show/hide sidebar
 defaults write com.apple.Safari ShowSidebarInNewWindows -bool false
 
-
 ### hidden safari tweaks
 
-# settings that are commented out couldn't be validated to see if they were out of date or not
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
 # hide safaris sidebar in top sites
 defaults write com.apple.Safari ShowSidebarInTopSites -bool false

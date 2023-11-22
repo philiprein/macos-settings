@@ -27,11 +27,9 @@ defaults write com.apple.finder FinderSpawnTab -bool false
 
 ### tags
 
-
-
 ### sidebar
 
-# settings are in 
+# settings are in
 # ~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.FavoriteVolumes.sfl2
 # and
 # ~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.FavoriteItems.sfl2
@@ -48,7 +46,6 @@ defaults write com.apple.finder FinderSpawnTab -bool false
 
 # tags
 defaults write com.apple.finder ShowRecentTags -bool false
-
 
 ### advanced
 
@@ -79,7 +76,6 @@ defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true
 # use the previous search scope = SCsp
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-
 ### view settings (cmd + j)
 
 # default finder view style
@@ -91,7 +87,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # default finder grouping
 defaults write com.apple.finder FXPreferredGroupBy -string "None"
-
 
 # icon view
 
@@ -128,21 +123,21 @@ defaults write com.apple.finder FXPreferredGroupBy -string "None"
 # right = false
 # desktop
 /usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom true" ~/Library/Preferences/com.apple.finder.plist
-# finder icon view 
+# finder icon view
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:labelOnBottom true" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:labelOnBottom true" ~/Library/Preferences/com.apple.finder.plist
 
 # show item info
 # desktop
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo false" ~/Library/Preferences/com.apple.finder.plist
-# finder icon view 
+# finder icon view
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo false" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo false" ~/Library/Preferences/com.apple.finder.plist
 
 # show item info
 # desktop
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showIconPreview true" ~/Library/Preferences/com.apple.finder.plist
-# finder icon view 
+# finder icon view
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showIconPreview true" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showIconPreview true" ~/Library/Preferences/com.apple.finder.plist
 
@@ -153,14 +148,11 @@ defaults write com.apple.finder FXPreferredGroupBy -string "None"
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:backgroundType 0" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:backgroundType 0" ~/Library/Preferences/com.apple.finder.plist
 
-
 # list view
 # TODO
 
-
 # column view
 # TODO
-
 
 # gallery view
 # TODO
@@ -185,10 +177,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 # show/hide status bar
 defaults write com.apple.finder ShowStatusBar -bool false
 
-
 ### hidden finder tweaks
 
-# settings that are commented out couldn't be validated to see if they were out of date or not
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
 # empty trash securely by default
 defaults write com.apple.finder EmptyTrashSecurely -bool false
@@ -247,9 +238,9 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 
 # delete specific extended attribute
 if [[ ! $(xattr -p com.apple.FinderInfo ~/Library) ]]; then
-    :
+  :
 else
-    xattr -d com.apple.FinderInfo ~/Library
+  xattr -d com.apple.FinderInfo ~/Library
 fi
 # set folder flag to not hidden
 chflags nohidden ~/Library

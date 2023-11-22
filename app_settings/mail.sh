@@ -67,14 +67,11 @@ defaults write com.apple.mail IndexJunk -bool true
 # encrypted messages
 defaults write com.apple.mail IndexDecryptedMessages -bool true
 
-
 ### accounts
-
 
 ### junk mail
 
 # TODO
-
 
 ### fonts & colors
 
@@ -92,7 +89,6 @@ defaults write com.apple.mail AutoSelectFont -bool false
 
 # show quoted text in colors
 defaults write com.apple.mail ColorQuoterColorIncoming -bool true
-
 
 ### viewing
 
@@ -132,7 +128,6 @@ defaults write com.apple.mail ConversationViewMarkAllAsRead -bool false
 
 # show most recent message at the top
 defaults write com.apple.mail ConversationViewSortDescending -bool true
-
 
 ### composing
 
@@ -184,7 +179,6 @@ defaults write com.apple.mail SupressQuoteBarsInComposeWindows -bool false
 # include selected text, if any; otherwise include all text = false
 defaults write com.apple.mail AlwaysIncludeOriginalMessage -bool true
 
-
 ### signatures
 
 # place signature above quoted text
@@ -193,8 +187,7 @@ defaults write com.apple.mail SignaturePlacedAboveQuotedText -bool true
 # always match my default message font
 # for enabling set SignatureIsRich -bool true in
 # ~/Library/Mail/V*/MailData/Signatures/AllSignatures.plist
-# ~/Library/Mail/V*/MailData/Signatures/SignaturesByAccount.plist 
-
+# ~/Library/Mail/V*/MailData/Signatures/SignaturesByAccount.plist
 
 ### rules
 
@@ -204,9 +197,7 @@ defaults write com.apple.mail SignaturePlacedAboveQuotedText -bool true
 # copy RulesActiveState.plist, SyncedRules.plist, UnsyncedRules.plist to the corresponding folder in your target system
 # TODO: automate this
 
-
 ### extensions
-
 
 ### privacy
 
@@ -217,7 +208,6 @@ defaults write com.apple.mail SignaturePlacedAboveQuotedText -bool true
 # protect mail activity off; hide ip address off; block all remote content off = 13
 # protect mail activity off; hide ip address off; block all remote content on = 15
 defaults write ""$HOME"/Library/Group Containers/group.com.apple.mail/Library/Preferences/group.com.apple.mail.plist" LoadRemoteContent-v2 -int 1
-
 
 ### view settings
 
@@ -264,10 +254,9 @@ defaults write com.apple.mail ShowReplyToHeader -bool false
 # show/hide favorites bar
 # TODO
 
-
 ### hidden mail tweaks
 
-# settings that are commented out couldn't be validated to see if they were out of date or not
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
 # display emails in threaded mode, sorted by date
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "YES"

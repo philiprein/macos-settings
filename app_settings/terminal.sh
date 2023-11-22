@@ -104,10 +104,11 @@ defaults write com.apple.terminal StringEncodings -array 10
 
 ### hidden terminal tweaks
 
-# settings that are commented out couldn't be validated to see if they were out of date or not
+# settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
 # secure keyboard entry
-defaults write com.apple.terminal SecureKeyboardEntry -bool true
+# this broke scrolling from my logitech mouse...
+defaults write com.apple.terminal SecureKeyboardEntry -bool false
 
 # enable "focus follows mouse" for Terminal.app and all X11 apps, i.e. hover over a window and start typing in it without clicking first
 # defaults write com.apple.terminal FocusFollowsMouse -bool true
