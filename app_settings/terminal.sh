@@ -2,12 +2,11 @@
 
 echo "Terminal settings..."
 
-# install solarized dark theme for terminal
-# source: https://github.com/mathiasbynens/dotfiles/blob/main/init/Solarized%20Dark%20xterm-256color.terminal
-PATH_TO_THEME="$(cd -- "$(dirname -- "${(%):-%x}")" && cd .. && pwd)/etc/Solarized Dark.terminal"
+# install theme for terminal
+PATH_TO_THEME=""
 
 if [[ -f $PATH_TO_THEME ]]; then
-  # install solarized dark theme and set as default
+  # install theme and set as default
   osascript <<EOD
     tell application "Terminal"
       set themeName to "Solarized Dark"
@@ -54,15 +53,15 @@ fi
 
 ### general
 
-# on startup, open new window with profile
-defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Dark"
+# on startup, open new window with profile (default: Basic)
+defaults write com.apple.terminal "Startup Window Settings" -string "Pro"
 
-# shells open with
+# shells open with (default: default login shell)
 # default login shell = ""
 # command (complete path) = e.g. "/bin/zsh"
 defaults write com.apple.terminal Shell -string ""
 
-# new windows open with
+# new windows open with (default: default profile, default working directory)
 # default profile
 defaults delete com.apple.terminal NewWindowSettingsBehavior
 # same profile
@@ -72,7 +71,7 @@ defaults delete com.apple.terminal NewWindowWorkingDirectoryBehavior
 # same working directory
 # defaults write com.apple.terminal NewWindowWorkingDirectoryBehavior -int 2
 
-# new tabs open with
+# new tabs open with (default: same profile, same working directory)
 # same profile
 defaults delete com.apple.terminal NewTabSettingsBehavior
 # default profile
@@ -82,7 +81,7 @@ defaults delete com.apple.terminal NewTabWorkingDirectoryBehavior
 # default working directory
 # defaults write com.apple.terminal NewTabWorkingDirectoryBehavior -int 1
 
-# use cmd-1 through cmd-9 to switch tabs
+# use cmd-1 through cmd-9 to switch tabs (default: on)
 # yes
 defaults delete com.apple.terminal Command1Through9SwitchesTabs
 # no
@@ -95,6 +94,7 @@ defaults delete com.apple.terminal Command1Through9SwitchesTabs
 
 ### encodings
 
+# defaults can be restored in settings
 # only use utf-16
 defaults write com.apple.terminal StringEncodings -array 10
 

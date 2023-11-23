@@ -106,7 +106,7 @@ defaults write com.apple.controlcenter "NSStatusItem Visible KeyboardBrightness"
 # never = 2
 defaults write com.apple.menuextra.clock ShowDate -int 0
 
-# show the day of the week (default: true)
+# show the day of the week (default: on)
 defaults write com.apple.menuextra.clock ShowDayOfWeek -bool true
 
 # style (default: false)

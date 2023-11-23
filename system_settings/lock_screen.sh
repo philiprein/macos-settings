@@ -60,7 +60,6 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -boo
 # off = true
 sudo defaults write /Library/Preferences/com.apple.loginwindow PowerOffDisabled -bool false
 
-
 ### accessibility options...
 # disable all
 sudo defaults write /Library/Preferences/com.apple.loginwindow UseVoiceOverAtLoginwindow -bool false
@@ -71,7 +70,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow UseVoiceOverAtLog
 sudo defaults write /Library/Preferences/com.apple.loginwindow accessibilitySettings -dict-add voiceOverOnOffKey 1
 
 # zoom (default: off)
-sudo defaults write /Library/Preferences/com.apple.loginwindow accessibilitySettings -dict-add closeViewHotkeysEnabled 1 
+sudo defaults write /Library/Preferences/com.apple.loginwindow accessibilitySettings -dict-add closeViewHotkeysEnabled 1
 sudo defaults write /Library/Preferences/com.apple.loginwindow accessibilitySettings -dict-add closeViewScrollWheelToggle 1
 sudo defaults write /Library/Preferences/com.apple.loginwindow accessibilitySettings -dict-add closeViewTrackpadGestureZoomEnabled 1
 
@@ -94,12 +93,11 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow accessibilitySett
 # make changes take effect (in GUI)
 sudo defaults read /Library/Preferences/com.apple.loginwindow &>/dev/null
 
-
 ### hidden lock screen tweaks
 
 # settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
-# reopen all windows after next login (default: true)
+# reopen all windows after next login (default: on)
 # false = disable, true = enable
 defaults write com.apple.loginwindow TALLogoutSavesState -bool true
 

@@ -4,8 +4,6 @@ echo "General settings..."
 
 ### about
 
-
-
 ### software update
 
 # to enable "Automatic updates" set all options below to true
@@ -26,7 +24,6 @@ sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool tru
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall -bool true
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall -bool true
 
-
 ### storage
 
 # store in icloud (default: set in setup assistant)
@@ -37,7 +34,6 @@ defaults write com.apple.TV automaticallyDeleteVideoAssetsAfterWatching -bool fa
 
 # empty bin automatically (default: off)
 defaults write com.apple.finder FXRemoveOldTrashItems -bool false
-
 
 ### airdrop & handoff
 
@@ -55,7 +51,7 @@ defaults write com.apple.sharingd DiscoverableMode -string "Contacts Only"
 
 # airplay receiver (default: on)
 defaults write -currentHost com.apple.controlcenter AirplayRecieverEnabled -bool true
-    
+
 # allow airplay for (default: 1)
 # current user = 1
 # anyone on the same network = 2
@@ -64,7 +60,6 @@ defaults write -currentHost com.apple.controlcenter AirplayReceiverAdvertising -
 
 # require password
 # TODO
-
 
 ### login items
 
@@ -90,7 +85,6 @@ defaults write -currentHost com.apple.controlcenter AirplayReceiverAdvertising -
 # ~/Library/LaunchAgents		user
 # will be reinstalled on every app update of the corresponding app
 
-
 ### language & region
 
 # preferred languages & region (default: set in setup assistant)
@@ -99,7 +93,7 @@ defaults write NSGlobalDomain AppleLocale -string "en_DE@currency=EUR"
 
 # calendar & first day of week  (default: set in setup assistant)
 # sunday = 1
-# monday = 2 
+# monday = 2
 # ...
 # saturday = 6
 defaults write NSGlobalDomain AppleFirstWeekday -array "gregorian = 2"
@@ -127,7 +121,6 @@ defaults write NSGlobalDomain AppleLiveTextEnabled -bool true
 # translation languages...
 # TODO
 
-
 ### date & time
 
 # set date and time automatically (default: on)
@@ -151,7 +144,6 @@ defaults write NSGlobalDomain AppleICUForce24HourTime -bool false
 # closest city
 # see "systemsetup -listtimezones" for other values
 sudo systemsetup -settimezone "Europe/Berlin" &>/dev/null
-
 
 ### sharing
 
@@ -183,11 +175,9 @@ sudo systemsetup -settimezone "Europe/Berlin" &>/dev/null
 # deactivate afp file server
 # disable_sharing_service "com.apple.AppleFileServer"
 
-
 # media sharing (default: off) (needs reboot)
 defaults write com.apple.amp.mediasharingd public-sharing-enabled -bool false
 defaults write com.apple.amp.mediasharingd home-sharing-enabled -bool false
-
 
 # screen sharing (default: off)
 # TODO
@@ -202,28 +192,24 @@ sudo defaults write /Library/Preferences/com.apple.RemoteManagement.plist Screen
 # VNC viewers may control screen with password
 # TODO
 
-
 # content caching (default: off)
 # on = activate
 # off = deactivate
 sudo AssetCacheManagerUtil deactivate
 
-
 # bluetooth sharing (default: off) (needs logout)
 defaults -currentHost write com.apple.bluetooth PrefKeyServicesEnabled -bool false
-
 
 # printer sharing (default: off)
 # on = --share-printers
 # off = --no-share-printers
 cupsctl --no-share-printers
-# sets preferences in 
+# sets preferences in
 # /etc/cups/cupsd.conf
 # /etc/cups/printers.conf
 # check
 # system_profiler SPPrintersDataType | grep "Printer Sharing"
 # system_profiler SPPrintersDataType | grep Shared
-
 
 # internet sharing (default: off)
 # TODO
@@ -233,10 +219,8 @@ cupsctl --no-share-printers
 # check
 # sudo defaults read /Library/Preferences/SystemConfiguration/com.apple.nat | grep -i Enabled
 
-
 # remote management (default: off)
 # TODO
-
 
 # remote login (default: off)
 # on = on
@@ -245,20 +229,18 @@ sudo systemsetup -setremotelogin off
 # check
 # sudo systemsetup -getremotelogin
 
-
 # remote application scripting
 # TODO
 
-
 # local hostname
-MY_HOSTNAME=$(system_profiler SPHardwareDataType | 
-            grep "Model Name" | 
-            awk -F":" '{print $2}' | 
-            tr '[:upper:]' '[:lower:]' | 
-            sed 's/^[[:space:]]*//g' | 
-            sed -e 's/[[:space:]]*$//g' | 
-            sed -e 's/ //g' | 
-            sed 's/^/'"$USER"'s-/g')
+MY_HOSTNAME=$(system_profiler SPHardwareDataType |
+  grep "Model Name" |
+  awk -F":" '{print $2}' |
+  tr '[:upper:]' '[:lower:]' |
+  sed 's/^[[:space:]]*//g' |
+  sed -e 's/[[:space:]]*$//g' |
+  sed -e 's/ //g' |
+  sed 's/^/'"$USER"'s-/g')
 
 sudo scutil --set ComputerName "$MY_HOSTNAME"
 sudo scutil --set LocalHostName "$MY_HOSTNAME"
@@ -271,7 +253,6 @@ unset MY_HOSTNAME
 # use dynamic global hostname
 # TODO
 
-
 ### time machine
 
 # back up frequency (default: 3600)
@@ -282,9 +263,8 @@ unset MY_HOSTNAME
 # automatically every week = 604800
 sudo defaults write /Library/Preferences/com.apple.TimeMachine AutoBackupInterval -int 3600
 
-# back up on battery power (default: true)
+# back up on battery power (default: on)
 sudo defaults write /Library/Preferences/com.apple.TimeMachine RequiresACPower -bool true
-
 
 ### hidden time machine tweaks
 
@@ -299,7 +279,7 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine AutoBackup -bool 
 
 # show warning after deleting old backups
 # sudo defaults write /Library/Preferences/com.apple.TimeMachine AlwaysShowDeletedBackupsWarning -bool true
-    
+
 # prevent time machine from prompting to use new hard drives as backup volume
 # defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
@@ -324,14 +304,9 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine AutoBackup -bool 
 #   done
 # fi
 
-
 ### transfer or reset
 
-
-
 ### startup disk
-
-
 
 ### hidden general tweaks
 

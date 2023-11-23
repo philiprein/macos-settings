@@ -38,7 +38,7 @@ defaults delete NSGlobalDomain AppleHighlightColor
 # big = 3
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
-# allow wallpaper tinting in windows (default: true)
+# allow wallpaper tinting in windows (default: on)
 defaults write NSGlobalDomain AppleReduceDesktopTinting -bool true
 
 # show scroll bars (default: Automatic)

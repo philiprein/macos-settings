@@ -5,12 +5,16 @@ echo "Finder settings..."
 ### general
 
 # show these items on the desktop
+# hard disks (default: off)
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+# external disks (default: on)
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+# cds, dvds, and ipods (default: on)
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+# connected servers (default: on)
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 
-# new finder windows show
+# new finder windows show (default: recents)
 # computer = PfCm
 # volume = PfVo, "file:///"
 # home folder = PfHm, "file://${HOME}/"
@@ -22,12 +26,16 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder NewWindowTarget -string "PfHm"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
-# open folders in tabs instead of new windows
+# open folders in tabs instead of new windows (default: on)
 defaults write com.apple.finder FinderSpawnTab -bool false
 
-### tags
 
-### sidebar
+### tags
+# TODO
+
+
+### sidebar (default: everything enabled apart from movies, music, pictures and computer)
+# TODO
 
 # settings are in
 # ~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.FavoriteVolumes.sfl2
@@ -42,35 +50,35 @@ defaults write com.apple.finder FinderSpawnTab -bool false
 # another solution is a gui script like this one: https://medium.com/@laclementine/favoris-vidéos-musique-images-dans-la-barre-latérale-du-finder-1652d8143961
 # i don't like either of these solutions, so i'll leave this to be done manually for now
 
-# TODO
-
 # tags
 defaults write com.apple.finder ShowRecentTags -bool false
 
+
 ### advanced
 
-# show all filename extensions
+# show all filename extensions (default: off)
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# show warning before changing an extension
+# show warning before changing an extension (default: on)
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# show warning before removing from icloud drive
+# show warning before removing from icloud drive (default: on)
 defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
 
-# show warning before emptying the trash
+# show warning before emptying the trash (default: on)
 defaults write com.apple.finder WarnOnEmptyTrash -bool true
 
-# remove items from the trash after 30 days
+# remove items from the trash after 30 days (default: off)
+# also set in general system settings
 defaults write com.apple.finder FXRemoveOldTrashItems -bool false
 
-# keep folders on top in windows when sorting by name
+# keep folders on top in windows when sorting by name (default: off)
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
-# keep folders on top on desktop
+# keep folders on top on desktop (default: off)
 defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true
 
-# when performing a search:
+# when performing a search (default: search this mac)
 # search this mac = SCev
 # search the current folder = SCcf
 # use the previous search scope = SCsp
@@ -78,47 +86,47 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 ### view settings (cmd + j)
 
-# default finder view style
+# default finder view style (default: as icons)
 # as icons = icnv
 # as list = Nlsv
 # as columns = clmv
 # as gallery = Flwv
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-# default finder grouping
+# default finder grouping (default: none)
 defaults write com.apple.finder FXPreferredGroupBy -string "None"
 
 # icon view
 
-# sort by
+# sort by (default: none)
 # desktop
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 # finder icon view
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
-# icon size
+# icon size (default: 64)
 # desktop
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
 # finder icon view
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
 
-# grid spacing
+# grid spacing (default: 54)
 # desktop
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 62" ~/Library/Preferences/com.apple.finder.plist
 # finder icon view
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 62" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 62" ~/Library/Preferences/com.apple.finder.plist
 
-# text size
+# text size (default: 12)
 # desktop
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ~/Library/Preferences/com.apple.finder.plist
 # finder icon view
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:textSize 12" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:textSize 12" ~/Library/Preferences/com.apple.finder.plist
 
-# label position
+# label position (default: bottom)
 # bottom = true
 # right = false
 # desktop
@@ -127,62 +135,71 @@ defaults write com.apple.finder FXPreferredGroupBy -string "None"
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:labelOnBottom true" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:labelOnBottom true" ~/Library/Preferences/com.apple.finder.plist
 
-# show item info
+# show item info (default: false)
 # desktop
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo false" ~/Library/Preferences/com.apple.finder.plist
 # finder icon view
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo false" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo false" ~/Library/Preferences/com.apple.finder.plist
 
-# show item info
+# show icon preview (default: true)
 # desktop
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showIconPreview true" ~/Library/Preferences/com.apple.finder.plist
 # finder icon view
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showIconPreview true" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showIconPreview true" ~/Library/Preferences/com.apple.finder.plist
 
-# background
+# background (default: default)
 # default = 0
 # color = 1
 # picture = 2
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:backgroundType 0" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:backgroundType 0" ~/Library/Preferences/com.apple.finder.plist
 
+
 # list view
 # TODO
+
 
 # column view
 # TODO
 
+
 # gallery view
 # TODO
 
+
 ### view settings
 
-# show/hide side bar
+# show/hide side bar (default: on)
 defaults write com.apple.finder ShowSidebar -bool true
 
-# show/hide preview
+# show/hide preview (default: off)
 defaults write com.apple.finder ShowPreviewPane -bool false
 
-# show/hide toolbar
+# show/hide toolbar (default: on)
 defaults write com.apple.finder "TB Is Shown" -bool true
 
-# show/hide tab bar
+# show/hide tab bar (default: off)
 defaults write com.apple.finder ShowTabView -bool false
 
-# show/hide path bar
+# show/hide path bar (default: off)
 defaults write com.apple.finder ShowPathbar -bool true
 
-# show/hide status bar
+# show/hide status bar (default: off)
 defaults write com.apple.finder ShowStatusBar -bool false
+
+
+### toolbar
+# TODO
+
 
 ### hidden finder tweaks
 
 # settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
 # empty trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool false
+# defaults write com.apple.finder EmptyTrashSecurely -bool false
 
 # allow quitting via cmd + q
 # doing so will also hide files and folders on the desktop
@@ -192,6 +209,7 @@ defaults write com.apple.finder QuitMenuItem -bool false
 defaults write com.apple.finder DisableAllAnimations -bool true
 
 # show hidden files
+# can also be toggled via cmd + shift + .
 defaults write com.apple.finder AppleShowAllFiles -bool false
 
 # allow text selection in quick look
@@ -237,10 +255,10 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # xattr -c ~/Library
 
 # delete specific extended attribute
-if [[ ! $(xattr -p com.apple.FinderInfo ~/Library) ]]; then
-  :
-else
+if [[ $(xattr -p com.apple.FinderInfo ~/Library) ]]; then
   xattr -d com.apple.FinderInfo ~/Library
+else
+  :
 fi
 # set folder flag to not hidden
 chflags nohidden ~/Library

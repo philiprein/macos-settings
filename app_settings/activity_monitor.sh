@@ -7,7 +7,7 @@ echo "Activity Monitor settings..."
 # columns
 # TODO
 
-# dock icon
+# dock icon (default: show application icon)
 # show cpu usage = 5
 # show cpu history = 6
 # show network usage = 2
@@ -15,12 +15,13 @@ echo "Activity Monitor settings..."
 # show application icon = 0
 defaults write com.apple.ActivityMonitor IconType -int 0
 
-# update frequency
+# update frequency (default: normally)
 # very often = 1
 # often = 2
 # normally = 5
 defaults write com.apple.ActivityMonitor UpdatePeriod -int 5
 
+# view (default: my processes)
 # all processes = 100
 # all processes, hierarchically = 101
 # my processes = 102
@@ -34,6 +35,7 @@ defaults write com.apple.ActivityMonitor UpdatePeriod -int 5
 # applications in last 12 hours = ?
 # processes, by gpu = ?
 defaults write com.apple.ActivityMonitor ShowCategory -int 100
+
 
 ### hidden activity monitor tweaks
 
