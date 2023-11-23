@@ -558,3 +558,6 @@ defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
 # 12 sites = 1
 # 24 sites = 2
 # defaults write com.apple.Safari TopSitesGridArrangement -int 0
+
+# add a context menu item for showing the web inspector in web views
+# defaults write NSGlobalDomain WebKitDeveloperExtras -bool true

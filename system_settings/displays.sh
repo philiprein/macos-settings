@@ -135,3 +135,7 @@ defaults write com.apple.sidecar.display doubleTapEnabled -bool false
 
 # show monitor sync options in menu bar if available
 # defaults write com.apple.airplay showInMenuBarIfPresent -bool true
+
+# Set level of font smoothing (anti-aliasing), which makes text look smoother on non-Apple LCDs
+# Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
+# defaults write NSGlobalDomain AppleFontSmoothing -int 1
