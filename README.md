@@ -6,7 +6,7 @@ The settings are organised by their respective pane in System Settings. Most set
 
 ## Contributing
 
-Some settings are still missing. They are marked with TODO. If you can identify them, feel free to create a pull request.
+Some settings are still missing. They are marked with TODO. If you can identify them, feel free to create a pull request. Also, I didn't have the time to identify the settings for all default macOS apps.
 
 ## Credits
 
