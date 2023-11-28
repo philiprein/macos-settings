@@ -11,7 +11,7 @@ defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 # cds, dvds, and ipods (default: on)
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
-# connected servers (default: on)
+# connected servers (default: off)
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 
 # new finder windows show (default: recents)

@@ -5,6 +5,7 @@ echo "Calendar settings..."
 ### general
 
 # default calendar app (default: Calendar)
+# TODO
 
 # days per week (default: 7)
 defaults write com.apple.iCal "n days of week" -int 7

@@ -19,7 +19,8 @@ echo "TextEdit settings..."
 # defaults delete com.apple.TextEdit RichText
 # plain text
 defaults write com.apple.TextEdit RichText -int 0
-# wrap to page
+
+# wrap to page (default: off)
 defaults write com.apple.TextEdit ShowPageBreaks -bool false
 
 # window size (default: 96, 30)
@@ -43,7 +44,7 @@ defaults write com.apple.TextEdit NSFontSize -int 12
 defaults write com.apple.TextEdit CheckSpellingWhileTyping -bool false 
 # check grammar with spelling (default: off)
 defaults write com.apple.TextEdit CheckGrammarWithSpelling -bool false
-# correct spelling automatically (default: off)
+# correct spelling automatically (default: on)
 defaults write com.apple.TextEdit CorrectSpellingAutomatically -bool false
 # show ruler (default: on)
 defaults write com.apple.TextEdit ShowRuler -bool false
@@ -55,9 +56,9 @@ defaults write com.apple.TextEdit SmartSubstitutionsEnabledInRichTextOnly -bool 
 defaults write com.apple.TextEdit CheckSpellingAsYouTypeEnabledInRichTextOnly -bool false
 # smart copy/paste (default: on)
 defaults write com.apple.TextEdit SmartCopyPaste -bool true
-# smart quotes (default: off)
+# smart quotes (default: on)
 defaults write com.apple.TextEdit SmartQuotes -bool false
-# smart dashes (default: off)
+# smart dashes (default: on)
 defaults write com.apple.TextEdit SmartDashes -bool false
 # smart links (default: off)
 defaults write com.apple.TextEdit SmartLinks -bool false

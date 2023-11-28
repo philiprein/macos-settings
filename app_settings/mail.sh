@@ -102,10 +102,10 @@ defaults write com.apple.mail IndexDecryptedMessages -bool true
 # fixed-width font
 # TODO
 
-# use fixed-width font for plain text messages
+# use fixed-width font for plain text messages (default: off)
 defaults write com.apple.mail AutoSelectFont -bool false
 
-# show quoted text in colors
+# color quoted text (default: on)
 defaults write com.apple.mail ColorQuoterColorIncoming -bool true
 
 
@@ -207,12 +207,12 @@ defaults write com.apple.mail AlwaysIncludeOriginalMessage -bool true
 
 ### signatures
 
-# always match my default message font
+# always match my default message font (default: off)
 # for enabling set SignatureIsRich -bool true in
 # ~/Library/Mail/V*/MailData/Signatures/AllSignatures.plist
 # ~/Library/Mail/V*/MailData/Signatures/SignaturesByAccount.plist
 
-# place signature above quoted text
+# place signature above quoted text (default: false)
 defaults write com.apple.mail SignaturePlacedAboveQuotedText -bool true
 
 

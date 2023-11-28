@@ -355,12 +355,6 @@ else
 fi
 
 # location (default: ask)
-# website use of location services
-# location services in system settings have to be enabled if option shall be enabled
-# 0 = deny without prompting
-# 1 = prompt for each website once each day
-# 2 = prompt for each website one time only
-defaults write com.apple.Safari SafariGeolocationPermissionPolicy -int 1
 # ask = 0
 # deny = 1
 # allow = 2
@@ -404,9 +398,6 @@ fi
 
 ### extensions
 # TODO
-
-# enable extensions (default: on)
-defaults write com.apple.Safari ExtensionsEnabled -bool true
 
 # SAFARI_APP_EXTENSIONS_CONFIG_FILE="${HOME}/Library/Containers/com.apple.Safari/Data/Library/Safari/AppExtensions/Extensions.plist"
 # SAFARI_WEB_EXTENSIONS_CONFIG_FILE="${HOME}/Library/Containers/com.apple.Safari/Data/Library/Safari/WebExtensions/Extensions.plist"
@@ -531,6 +522,16 @@ defaults write com.apple.Safari ShowSidebarInNewWindows -bool false
 ### hidden safari tweaks
 
 # settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
+
+# enable extensions (default: on)
+defaults write com.apple.Safari ExtensionsEnabled -bool true
+
+# website use of location services
+# location services in system settings have to be enabled if option shall be enabled
+# 0 = deny without prompting
+# 1 = prompt for each website once each day
+# 2 = prompt for each website one time only
+defaults write com.apple.Safari SafariGeolocationPermissionPolicy -int 1
 
 # hide safaris sidebar in top sites
 # defaults write com.apple.Safari ShowSidebarInTopSites -bool false

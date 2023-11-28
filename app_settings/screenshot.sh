@@ -28,7 +28,7 @@ defaults write com.apple.screencapture save-selections -bool true
 # show mouse pointer (default: off)
 defaults write com.apple.screencapture showsCursor -bool false
 
-### hidden screencapture tweaks
+### hidden screenshot tweaks
 
 # save screenshots in png format (default: png)
 # other options: bmp, gif, jpg, pdf, tiff
