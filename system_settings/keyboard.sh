@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo "Wi-Fi settings..."
+echo "Keyboard settings..."
 
 # key repeat rate (default: 5)
 defaults write NSGlobalDomain KeyRepeat -int 6
@@ -152,7 +152,9 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64
 #   /usr/libexec/PlistBuddy -c "Add :"$config_value":0:'KeyboardLayout Name' string '"$KEYBOARD_LOCALE"'" "$KEYBOARD_CONFIG_FILE"
 # done
 
-# Edit...
+
+### Edit...
+
 # show input menu in menu bar (default: on)
 defaults write com.apple.TextInputMenu visible -bool false
 

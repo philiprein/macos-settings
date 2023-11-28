@@ -98,7 +98,8 @@ sudo defaults read /Library/Preferences/com.apple.loginwindow &>/dev/null
 # settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
 # reopen all windows after next login (default: on)
-# false = disable, true = enable
+# disable = false
+# enable = true
 defaults write com.apple.loginwindow TALLogoutSavesState -bool true
 
 # show input sources on login window

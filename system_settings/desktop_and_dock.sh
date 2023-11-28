@@ -127,9 +127,9 @@ defaults write com.apple.WindowManager StageManagerHideWidgets -bool false
 # automatic = 2
 # monochrome = 0
 # full-color = 1
-defaults write com.apple.widgets widgetAppearance -int 1
+defaults write com.apple.widgets widgetAppearance -int 2
 
-# use iPhone widgets (default: on)
+# use iphone widgets (default: on)
 defaults write com.apple.chronod remoteWidgetsEnabled -bool true
 defaults write com.apple.chronod effectiveRemoteWidgetsEnabled -bool true
 

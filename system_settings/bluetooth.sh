@@ -24,4 +24,5 @@ echo "Bluetooth settings..."
 # settings that are commented out are out of date or couldn't be validated to see if they were out of date or not
 
 # allow bluetooth devices to wake up the mac
+# doesn't seem to work anymore...
 # defaults -currentHost write com.apple.bluetooth RemoteWakeEnabled -boolean true

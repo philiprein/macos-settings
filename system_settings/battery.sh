@@ -40,7 +40,7 @@ sudo pmset -c lessbright 0
 # off = 0
 sudo pmset -c sleep 0
 
-# wake for network access
+# wake for network access (default: only on power adapter)
 # never
 sudo pmset -a womp 0 2>/dev/null
 # always

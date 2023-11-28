@@ -281,7 +281,7 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine AutoBackup -bool 
 # sudo defaults write /Library/Preferences/com.apple.TimeMachine AlwaysShowDeletedBackupsWarning -bool true
 
 # prevent time machine from prompting to use new hard drives as backup volume
-# defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+# sudo defaults write /Library/Preferences/com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # disable local time machine backups / snapshots
 # sudo tmutil disable
