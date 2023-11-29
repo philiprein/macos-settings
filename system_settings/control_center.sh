@@ -146,10 +146,10 @@ defaults delete com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false
 
 # time machine (default: don't show in menu bar) & vpn (default: don't show in menu bar)
 # first delete all entries from the menuExtras array
-defaults delete com.apple.systemuiserver.plist menuExtras
+defaults delete com.apple.systemuiserver.plist menuExtras 2>/dev/null
 # delete visibility status
-defaults delete com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine"
-defaults delete com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.vpn"
+defaults delete com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" 2>/dev/null
+defaults delete com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.vpn" 2>/dev/null
 # add the entries you wish to see
 defaults write com.apple.systemuiserver.plist menuExtras -array-add "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
 defaults write com.apple.systemuiserver.plist menuExtras -array-add "/System/Library/CoreServices/Menu Extras/VPN.menu"

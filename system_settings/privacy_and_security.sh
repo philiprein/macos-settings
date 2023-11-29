@@ -125,6 +125,9 @@ sudo spctl --enable
 # spctl --enable --label "GitHub"
 # spctl --disable --label "GitHub"
 
+# allow accessories to connect
+# TODO
+
 # filevault (default: set in setup assistant or off)
 # TODO
 # enabling filevault via script leads to complications with other settings

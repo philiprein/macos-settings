@@ -58,11 +58,6 @@ defaults write com.apple.universalaccess closeViewScrollWheelModifiersInt -int 2
 ### keyboard
 # TODO
 
-# full keyboard access (default: 0)
-# on = 2
-# off = 0
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 0
-
 
 ### pointer control
 # TODO

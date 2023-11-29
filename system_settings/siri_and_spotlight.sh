@@ -56,26 +56,29 @@ defaults write com.apple.assistant.backedup "Session Language" -string en-US
 
 # siri suggestions & privacy (default: all enabled)
 # to disable "show siri suggestions for x", add the app's bundle identifier to the AppCanShowSiriSuggestionsBlacklist array
-defaults delete com.apple.suggestions AppCanShowSiriSuggestionsBlacklist
+defaults delete com.apple.suggestions AppCanShowSiriSuggestionsBlacklist 2>/dev/null
 defaults write com.apple.suggestions AppCanShowSiriSuggestionsBlacklist -array-add \
   "com.apple.AddressBook" \
   "com.apple.FaceTime" \
+  "com.apple.iBooksX" \
   "com.apple.iCal" \
   "com.apple.mail" \
   "com.apple.Maps" \
   "com.apple.MobileSMS" \
   "com.apple.news" \
   "com.apple.podcasts" \
-  "com.apple.reminders"
+  "com.apple.reminders" \
+  "com.apple.Safari"
 
 # to disable "learn from this application", add the app's bundle identifier to the SiriCanLearnFromAppBlacklist array
-defaults delete com.apple.suggestions SiriCanLearnFromAppBlacklist
+defaults delete com.apple.suggestions SiriCanLearnFromAppBlacklist 2>/dev/null
 defaults write com.apple.suggestions SiriCanLearnFromAppBlacklist -array-add \
   "com.apple.AddressBook" \
   "com.apple.AppStore" \
   "com.apple.clock" \
   "com.apple.FaceTime" \
   "com.apple.freeform" \
+  "com.apple.helpviewer" \
   "com.apple.iBooksX" \
   "com.apple.iCal" \
   "com.apple.mail" \
@@ -112,7 +115,7 @@ defaults write com.apple.assistant.backedup "Always Show Recognized Speech" -boo
 ### spotlight
 
 # search results (default: all enabled)
-defaults delete com.apple.Spotlight orderedItems
+defaults delete com.apple.Spotlight orderedItems 2>/dev/null
 
 /usr/libexec/PlistBuddy -c 'Add :orderedItems array' ~/Library/Preferences/com.apple.Spotlight.plist
 

@@ -8,7 +8,7 @@ echo "Passwords settings..."
 defaults write com.apple.Safari PasswordBreachDetectionOn -bool true
 
 
-### autofill passwords and passkeys
+### password options
 
 # autofill passwords and passkeys (default: off)
 defaults write com.apple.Safari AutoFillPasswords -bool false

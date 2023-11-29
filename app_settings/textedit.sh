@@ -2,15 +2,16 @@
 
 echo "TextEdit settings..."
 
-# osascript <<EOF
-#   try
-#     tell application "TextEdit"
-#       run
-#       delay 3
-#       quit
-#     end tell
-#   end try		
-# EOF
+# textedit needs to be openend once, otherwise settings won't apply
+osascript <<EOF
+  try
+    tell application "TextEdit"
+      run
+      delay 3
+      quit
+    end tell
+  end try		
+EOF
 
 ### new document
 

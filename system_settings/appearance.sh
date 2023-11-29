@@ -5,13 +5,13 @@ echo "Appearance settings..."
 # appearance (default: set in setup assistant or light) (needs logout)
 # check: defaults read NSGlobalDomain | grep AppleInterfaceStyle
 # light
-defaults delete NSGlobalDomain AppleInterfaceStyle
+defaults delete NSGlobalDomain AppleInterfaceStyle 2>/dev/null
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool false
 # dark
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool false
 # automatic
-defaults delete NSGlobalDomain AppleInterfaceStyle
+defaults delete NSGlobalDomain AppleInterfaceStyle 2>/dev/null
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
 
 # accent color (default: multicolor)
